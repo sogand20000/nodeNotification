@@ -60,27 +60,27 @@ app.get("/send-notification", async (req, res) => {
     },
   };
 
-  subscripstions.data.forEach(function (sub) {
-    var pushConfig = {
-      endpoint: b.endpoint,
-      keys: b.keys,
-    };
-    // console.log(pushConfig);
-    // return;
-    //  console.log(pushConfig);
+  // subscripstions.data.forEach(function (sub) {
+  var pushConfig = {
+    endpoint: b.endpoint,
+    keys: b.keys,
+  };
+  // console.log(pushConfig);
+  // return;
+  //  console.log(pushConfig);
 
-    webpush
-      .sendNotification(
-        pushConfig,
-        JSON.stringify({ title: "New Post", content: "New Post added !" })
-      )
-      .then(function (result) {
-        console.log("result", result);
-      })
-      .catch(function (err) {
-        console.log("err", err);
-      });
-  });
+  webpush
+    .sendNotification(
+      pushConfig,
+      JSON.stringify({ title: "New Post", content: "New Post added !" })
+    )
+    .then(function (result) {
+      console.log("result", result);
+    })
+    .catch(function (err) {
+      console.log("err", err);
+    });
+  //});
   res.json({ statue: "Success" });
   //  });
 });
