@@ -7,7 +7,7 @@ const path = require("path");
 const app = express();
 app.use(express.json());
 app.get("/", (req, res) => {
-  res.send("Hello word 1");
+  res.send("Hello word 2");
 });
 const apiKeys = {
   publicKey:
