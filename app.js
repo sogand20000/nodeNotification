@@ -23,7 +23,7 @@ const subDatabase = [];
 app.use(cors());
 app.use(express.json());
 app.get("/", (req, res) => {
-  res.send("Hello word");
+  res.send("Hello word 1");
 });
 const items = [];
 // async function getItem() {
