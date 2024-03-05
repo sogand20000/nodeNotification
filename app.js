@@ -25,6 +25,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello word 1");
 });
+
+//https://www.youtube.com/watch?v=HlYFW2zaYQM
 const items = [];
 // async function getItem() {
 //   return await supabase.from("subscribes").select("*");

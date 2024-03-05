@@ -5,6 +5,8 @@ const cors = require("cors");
 // const express=require('express')
 const path = require("path");
 const app = express();
+app.use(cors());
+
 app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello word 2");
@@ -19,6 +21,7 @@ webpush.setVapidDetails(
   apiKeys.publicKey,
   apiKeys.privateKey
 );
+
 //subscrib Rute
 app.post("/subscribe", (req, res) => {
   //Get pushSubscribscription object
@@ -26,12 +29,16 @@ app.post("/subscribe", (req, res) => {
   res.status(201).json({});
   const payload = JSON.stringify({ title: "Push Test" });
   //pass object inti sendNotification
+  subscription.forEach((element) => {
+    console.log(element);
+  });
+  return;
   webpush
     .sendNotification(subscription, payload)
     .then(function (result) {
-      console.log(result);
+      console.log("result", result);
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("err", err));
 });
 
 const port = 5000;
