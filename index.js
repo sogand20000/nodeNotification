@@ -29,9 +29,10 @@ app.post("/subscribe", (req, res) => {
   res.status(201).json({});
   const payload = JSON.stringify({ title: "Push Test" });
   //pass object inti sendNotification
-  subscription.forEach((element) => {
-    console.log(element);
-  });
+
+  // subscription.forEach((element) => {
+  console.log(subscription[0]);
+  // });
   return;
   webpush
     .sendNotification(subscription, payload)
