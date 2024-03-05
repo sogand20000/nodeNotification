@@ -31,11 +31,13 @@ app.post("/subscribe", (req, res) => {
   //pass object inti sendNotification
 
   // subscription.forEach((element) => {
-  console.log(subscription[0]);
+  var pushConfig = {
+    endpoint: subscription.endpoint,
+    keys: subscription.keys,
+  };
   // });
-  return;
   webpush
-    .sendNotification(subscription, payload)
+    .sendNotification(pushConfig, payload)
     .then(function (result) {
       console.log("result", result);
     })
